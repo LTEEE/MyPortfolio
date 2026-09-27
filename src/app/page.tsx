@@ -1,5 +1,6 @@
 import React from "react";
-import { MapPin, Github, Linkedin, Mail, ExternalLink, GraduationCap, Briefcase, Code, PenTool } from "lucide-react";
+import { MapPin, Mail, ExternalLink, GraduationCap, Briefcase, Code, PenTool } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
               rel="noreferrer"
               className="flex items-center gap-1.5 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
             >
-              <Linkedin className="w-4 h-4" />
+              <FaLinkedin className="w-4 h-4" />
               LinkedIn
             </a>
             <a 
@@ -27,7 +28,7 @@ export default function Home() {
               rel="noreferrer"
               className="flex items-center gap-1.5 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
             >
-              <Github className="w-4 h-4" />
+              <FaGithub className="w-4 h-4" />
               GitHub
             </a>
             <span className="flex items-center gap-1.5 cursor-default">
