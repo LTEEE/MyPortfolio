@@ -1,18 +1,58 @@
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
 import { MapPin, Mail, ExternalLink, GraduationCap, Briefcase, Code, PenTool } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+// Register GSAP plugins
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, useGSAP);
+}
 
 export default function Home() {
+  const container = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    // Header animation (plays immediately)
+    gsap.from(".header-anim", {
+      y: 30,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.15,
+      ease: "power3.out",
+    });
+
+    // Scroll animations for sections
+    const sections = gsap.utils.toArray<HTMLElement>(".section-anim");
+    
+    sections.forEach((section) => {
+      gsap.from(section, {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "top 85%", // Triggers when the top of the section hits 85% of the viewport height
+          toggleActions: "play none none reverse",
+        },
+      });
+    });
+  }, { scope: container });
+
   return (
-    <main className="min-h-screen bg-[var(--background)] text-[var(--foreground)] font-sans selection:bg-neutral-800 selection:text-white dark:selection:bg-neutral-200 dark:selection:text-neutral-900 pb-20">
+    <main ref={container} className="min-h-screen bg-[var(--background)] text-[var(--foreground)] font-sans selection:bg-neutral-800 selection:text-white dark:selection:bg-neutral-200 dark:selection:text-neutral-900 pb-20 overflow-hidden">
       <div className="max-w-3xl mx-auto px-6 pt-16 md:pt-24">
         {/* Header Section */}
         <header className="mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Maksym Poberezhnyi</h1>
-          <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">
+          <h1 className="header-anim text-4xl md:text-5xl font-bold tracking-tight mb-4">Maksym Poberezhnyi</h1>
+          <p className="header-anim text-lg md:text-xl text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">
             International Marketing student at the University of Lodz, content writer, and someone who builds his own apps.
           </p>
-          <div className="flex flex-wrap gap-4 text-sm text-neutral-500 dark:text-neutral-400">
+          <div className="header-anim flex flex-wrap gap-4 text-sm text-neutral-500 dark:text-neutral-400">
             <a 
               href="https://www.linkedin.com/in/mpoberezhnyi/" 
               target="_blank" 
@@ -40,7 +80,7 @@ export default function Home() {
 
         <div className="space-y-20">
           {/* About Section */}
-          <section>
+          <section className="section-anim">
             <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
               <span className="w-8 h-[1px] bg-neutral-300 dark:bg-neutral-700"></span>
               About me
@@ -56,7 +96,7 @@ export default function Home() {
           </section>
 
           {/* Projects Section */}
-          <section>
+          <section className="section-anim">
             <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
               <span className="w-8 h-[1px] bg-neutral-300 dark:bg-neutral-700"></span>
               Projects
@@ -123,7 +163,7 @@ export default function Home() {
           </section>
 
           {/* Experience & Education */}
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <section className="section-anim grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Experience */}
             <div>
               <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
@@ -170,7 +210,7 @@ export default function Home() {
           </section>
 
           {/* Skills */}
-          <section>
+          <section className="section-anim">
             <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
               <span className="w-8 h-[1px] bg-neutral-300 dark:bg-neutral-700"></span>
               Skills
