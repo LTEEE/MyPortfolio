@@ -28,6 +28,7 @@ export const metadata: Metadata = {
 import TubesBackground from "../components/TubesBackground";
 import { ThemeProvider } from "../components/ThemeProvider";
 import { ThemeToggle } from "../components/ThemeToggle";
+import { SmoothScroll } from "../components/SmoothScroll";
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -38,10 +39,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col relative bg-[#faf9f6] dark:bg-[#0a0a0a] text-[#111111] dark:text-[#ededed] transition-colors duration-500">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          <ThemeToggle />
-          <TubesBackground>
-            {children}
-          </TubesBackground>
+          <SmoothScroll>
+            <ThemeToggle />
+            <TubesBackground>
+              {children}
+            </TubesBackground>
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>

@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import { MapPin, Mail, ExternalLink, GraduationCap, Briefcase, Code, PenTool } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import gsap from "gsap";
+import { TiltCard } from "../components/TiltCard";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
@@ -103,7 +104,7 @@ export default function Home() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Project: Weave */}
-              <div className="group border border-neutral-200 dark:border-neutral-800 rounded-2xl p-6 hover:bg-neutral-50 dark:hover:bg-neutral-900/50 transition-colors">
+              <TiltCard>
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="font-medium text-lg flex items-center gap-2">
                     <Code className="w-4 h-4 text-neutral-500" />
@@ -116,10 +117,10 @@ export default function Home() {
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   A media organisation app with an infinite canvas where people connect their ideas and media items visually, much like a Miro board.
                 </p>
-              </div>
+              </TiltCard>
 
               {/* Project: Letters */}
-              <div className="group border border-neutral-200 dark:border-neutral-800 rounded-2xl p-6 hover:bg-neutral-50 dark:hover:bg-neutral-900/50 transition-colors">
+              <TiltCard>
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="font-medium text-lg flex items-center gap-2">
                     <PenTool className="w-4 h-4 text-neutral-500" />
@@ -129,10 +130,10 @@ export default function Home() {
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   A native macOS writing environment built to enhance focus, featuring its own set of integrated AI assistance tools.
                 </p>
-              </div>
+              </TiltCard>
 
               {/* Project: dnails */}
-              <div className="group border border-neutral-200 dark:border-neutral-800 rounded-2xl p-6 hover:bg-neutral-50 dark:hover:bg-neutral-900/50 transition-colors">
+              <TiltCard>
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="font-medium text-lg flex items-center gap-2">
                     <Code className="w-4 h-4 text-neutral-500" />
@@ -145,10 +146,10 @@ export default function Home() {
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   A modern, responsive landing page and business website designed for Dream Nails, a manicure and pedicure salon based in Łódź.
                 </p>
-              </div>
+              </TiltCard>
 
               {/* Project: ProjectActual */}
-              <div className="group border border-neutral-200 dark:border-neutral-800 rounded-2xl p-6 hover:bg-neutral-50 dark:hover:bg-neutral-900/50 transition-colors">
+              <TiltCard>
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="font-medium text-lg flex items-center gap-2">
                     <Code className="w-4 h-4 text-neutral-500" />
@@ -161,7 +162,7 @@ export default function Home() {
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   A time-tracking and focus app that compares your estimated task times against actual completion times, generating a calibration score to help improve your time management bias.
                 </p>
-              </div>
+              </TiltCard>
             </div>
           </section>
 
