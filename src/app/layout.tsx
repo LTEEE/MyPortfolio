@@ -26,6 +26,7 @@ export const metadata: Metadata = {
 };
 
 import NoiseBackground from "../components/NoiseBackground";
+import CursorEffect from "../components/CursorEffect";
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col relative bg-transparent">
         <NoiseBackground />
+        <CursorEffect />
         <div className="relative z-10">{children}</div>
       </body>
     </html>

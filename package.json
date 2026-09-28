@@ -16,7 +16,8 @@
     "next": "16.3.6",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "react-icons": "^5.7.0"
+    "react-icons": "^5.7.0",
+    "shaders": "^3.2.473"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
