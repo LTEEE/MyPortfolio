@@ -49,10 +49,10 @@ export function TubesBackground({
           tubes: {
             scale: 0.4,       // Make them overall smaller
             radius: 0.1,      // Thinner tubes
-            colors: ["#ffffff", "#f0f0f0", "#e0e0e0"],
+            colors: ["#ffffff", "#ffffff", "#ffffff"], // Pure white tubes
             lights: {
-              intensity: 15,  // Very dim light to remove the "neon lightning" effect
-              colors: ["#ffffff", "#dddddd", "#bbbbbb", "#999999"]
+              intensity: 2,   // Drop intensity drastically to remove the hard-edged spotlight aura
+              colors: ["#222222", "#111111", "#111111", "#0a0a0a"] // Very dim lights
             }
           }
         });
@@ -75,7 +75,7 @@ export function TubesBackground({
     if (!enableClickInteraction || !tubesRef.current) return;
     
     const colors = randomSnow(3);
-    const lightsColors = randomSnow(4);
+    const lightsColors = ["#111111", "#222222", "#0a0a0a", "#1a1a1a"];
     
     tubesRef.current.tubes.setColors(colors);
     tubesRef.current.tubes.setLightsColors(lightsColors);
