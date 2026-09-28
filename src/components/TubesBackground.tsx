@@ -66,14 +66,10 @@ export function TubesBackground({
           tubes: {
             scale: 0.4,       // Make them overall smaller
             radius: 0.1,      // Thinner tubes
-            colors: ["#faf9f6", "#faf9f6", "#faf9f6"], // Paper color
-            material: {
-              metalness: 0,   // Remove shiny metal effect
-              roughness: 1,   // Make it completely matte paper/ink texture
-            },
+            colors: ["#ffffff", "#f0f0f0", "#e0e0e0"],
             lights: {
               intensity: 10,  // Dimmer light
-              colors: ["#faf9f6", "#faf9f6", "#faf9f6", "#faf9f6"]
+              colors: ["#ffffff", "#dddddd", "#bbbbbb", "#999999"]
             }
           },
           bloom: {
