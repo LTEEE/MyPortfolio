@@ -1,0 +1,18 @@
+# Design Concepts
+
+Here are the branches created for the "B&W to Color" concepts. You can switch to any of them using the commands below:
+
+1. The Ink & Paint Reveal
+Command: git checkout concept-ink-paint
+Description: The cursor traces and cards inject unique, vibrant colors only when hovering over specific projects.
+
+2. The Floating Memory
+Command: git checkout concept-floating-memory
+Description: Hovering over brutalist text rows summons floating, vivid colorful images/gradients that follow your cursor.
+
+3. The Semantic Gradients
+Command: git checkout concept-semantic-gradients
+Description: The stark B&W background blooms into massive, slow-moving colorful mesh gradients based on what you hover.
+
+To return to the main codebase at any time, run:
+git checkout main
