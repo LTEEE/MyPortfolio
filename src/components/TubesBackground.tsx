@@ -3,12 +3,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { cn } from "@/lib/utils"; 
 
-// Helper for random grayscale colors
-const randomGrayscale = (count: number) => {
+// Helper for random ink colors
+const randomInk = (count: number) => {
   return new Array(count)
     .fill(0)
     .map(() => {
-      const v = Math.floor(Math.random() * 256).toString(16).padStart(2, '0');
+      // Very dark grayscale values (10 to 60)
+      const v = Math.floor(10 + Math.random() * 50).toString(16).padStart(2, '0');
       return `#${v}${v}${v}`;
     });
 };
@@ -43,10 +44,12 @@ export function TubesBackground({
 
         const app = TubesCursor(canvasRef.current, {
           tubes: {
-            colors: ["#ffffff", "#bbbbbb", "#888888"],
+            scale: 0.4,       // Make them overall smaller
+            radius: 0.1,      // Thinner tubes
+            colors: ["#111111", "#1a1a1a", "#262626"], // Dark, ink-like base colors
             lights: {
-              intensity: 200,
-              colors: ["#ffffff", "#cccccc", "#aaaaaa", "#dddddd"]
+              intensity: 15,  // Very dim light to remove the "neon lightning" effect
+              colors: ["#333333", "#444444", "#555555", "#666666"]
             }
           }
         });
@@ -68,8 +71,8 @@ export function TubesBackground({
   const handleClick = () => {
     if (!enableClickInteraction || !tubesRef.current) return;
     
-    const colors = randomGrayscale(3);
-    const lightsColors = randomGrayscale(4);
+    const colors = randomInk(3);
+    const lightsColors = randomInk(4);
     
     tubesRef.current.tubes.setColors(colors);
     tubesRef.current.tubes.setLightsColors(lightsColors);
