@@ -4,7 +4,6 @@ import React, { useRef } from "react";
 import { MapPin, Mail, ExternalLink, GraduationCap, Briefcase, Code, PenTool } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import gsap from "gsap";
-import { RippleName } from "../components/RippleName";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
@@ -49,9 +48,7 @@ export default function Home() {
       <div className="max-w-5xl mx-auto px-6 pt-16 md:pt-24">
         {/* Header Section */}
         <header className="mb-16">
-          <div className="header-anim mb-12">
-            <RippleName firstName="Maksym" lastName="Poberezhnyi" />
-          </div>
+          <h1 className="header-anim text-4xl md:text-5xl font-bold tracking-tight mb-4">Maksym Poberezhnyi</h1>
           <p className="header-anim text-lg md:text-xl text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed max-w-2xl">
             International Marketing student at the University of Lodz, content writer, and someone who builds his own apps.
           </p>
