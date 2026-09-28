@@ -26,17 +26,23 @@ export const metadata: Metadata = {
 };
 
 import TubesBackground from "../components/TubesBackground";
+import { ThemeProvider } from "../components/ThemeProvider";
+import { ThemeToggle } from "../components/ThemeToggle";
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`dark ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col relative bg-transparent">
-        <TubesBackground>
-          {children}
-        </TubesBackground>
+      <body className="min-h-full flex flex-col relative bg-transparent text-neutral-900 dark:text-neutral-100 transition-colors duration-500">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <ThemeToggle />
+          <TubesBackground>
+            {children}
+          </TubesBackground>
+        </ThemeProvider>
       </body>
     </html>
   );
