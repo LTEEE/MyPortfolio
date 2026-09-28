@@ -108,15 +108,16 @@ export function TubesBackground({
         <filter id="noiseFilter">
           <feTurbulence 
             type="fractalNoise" 
-            baseFrequency="0.85" 
-            numOctaves="3" 
+            baseFrequency="0.8" 
+            numOctaves="1" 
             stitchTiles="stitch" 
           />
+          <feColorMatrix type="saturate" values="0" />
         </filter>
       </svg>
       {/* The Noise Overlay Layer */}
       <div 
-        className="fixed inset-0 w-full h-full opacity-[0.25] z-[2] pointer-events-none transition-all duration-500 mix-blend-multiply dark:mix-blend-screen"
+        className="fixed inset-0 w-full h-full opacity-[0.15] z-[2] pointer-events-none transition-all duration-500 mix-blend-multiply dark:mix-blend-screen"
         style={{ filter: "url(#noiseFilter)" }}
       ></div>
 
