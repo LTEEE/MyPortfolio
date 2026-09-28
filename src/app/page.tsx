@@ -114,7 +114,7 @@ export default function Home() {
                   </a>
                 </div>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                  A media organisation app with a canvas where people connect their media items visually, much like a Miro board. Built in TypeScript with Expo.
+                  A media organisation app with an infinite canvas where people connect their ideas and media items visually, much like a Miro board.
                 </p>
               </div>
 
@@ -127,7 +127,7 @@ export default function Home() {
                   </h3>
                 </div>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                  A native macOS writing app with its own AI features, which I am building with SwiftUI and a Rust core.
+                  A native macOS writing environment built to enhance focus, featuring its own set of integrated AI assistance tools.
                 </p>
               </div>
 
@@ -143,7 +143,7 @@ export default function Home() {
                   </a>
                 </div>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                  A website built in HTML, CSS and JavaScript.
+                  A modern, responsive landing page and business website designed for Dream Nails, a manicure and pedicure salon based in Łódź.
                 </p>
               </div>
 
@@ -159,7 +159,7 @@ export default function Home() {
                   </a>
                 </div>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                  A native iOS and watchOS application built with SwiftUI, featuring custom widgets and a shared core architecture.
+                  A time-tracking and focus app that compares your estimated task times against actual completion times, generating a calibration score to help improve your time management bias.
                 </p>
               </div>
             </div>
