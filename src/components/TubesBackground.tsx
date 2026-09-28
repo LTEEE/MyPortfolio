@@ -5,17 +5,6 @@ import { cn } from "@/lib/utils";
 
 import { useTheme } from "next-themes";
 
-// Helper for random ink colors
-const randomInk = (count: number) => {
-  return new Array(count)
-    .fill(0)
-    .map(() => {
-      // Very dark grayscale values (10 to 60)
-      const v = Math.floor(10 + Math.random() * 50).toString(16).padStart(2, '0');
-      return `#${v}${v}${v}`;
-    });
-};
-
 // Helper for random snow colors
 const randomSnow = (count: number) => {
   return new Array(count)
@@ -43,21 +32,6 @@ export function TubesBackground({
   const tubesRef = useRef<any>(null);
   const { theme } = useTheme();
 
-  // Watch for theme changes and update the colors
-  useEffect(() => {
-    if (!tubesRef.current) return;
-    
-    if (theme === 'light') {
-      // Inkish on light background
-      tubesRef.current.tubes.setColors(["#111111", "#1a1a1a", "#262626"]);
-      tubesRef.current.tubes.setLightsColors(["#333333", "#444444", "#555555", "#666666"]);
-    } else {
-      // Snowish on dark background
-      tubesRef.current.tubes.setColors(["#ffffff", "#f0f0f0", "#e0e0e0"]);
-      tubesRef.current.tubes.setLightsColors(["#ffffff", "#dddddd", "#bbbbbb", "#999999"]);
-    }
-  }, [theme]);
-
   useEffect(() => {
     let mounted = true;
 
@@ -71,20 +45,14 @@ export function TubesBackground({
 
         if (!mounted) return;
 
-        const isLight = theme === 'light';
-
         const app = TubesCursor(canvasRef.current, {
           tubes: {
             scale: 0.4,       // Make them overall smaller
             radius: 0.1,      // Thinner tubes
-            colors: isLight 
-              ? ["#111111", "#1a1a1a", "#262626"] 
-              : ["#ffffff", "#f0f0f0", "#e0e0e0"],
+            colors: ["#ffffff", "#f0f0f0", "#e0e0e0"],
             lights: {
               intensity: 15,  // Very dim light to remove the "neon lightning" effect
-              colors: isLight 
-                ? ["#333333", "#444444", "#555555", "#666666"]
-                : ["#ffffff", "#dddddd", "#bbbbbb", "#999999"]
+              colors: ["#ffffff", "#dddddd", "#bbbbbb", "#999999"]
             }
           }
         });
@@ -106,8 +74,8 @@ export function TubesBackground({
   const handleClick = () => {
     if (!enableClickInteraction || !tubesRef.current) return;
     
-    const colors = theme === 'light' ? randomInk(3) : randomSnow(3);
-    const lightsColors = theme === 'light' ? randomInk(4) : randomSnow(4);
+    const colors = randomSnow(3);
+    const lightsColors = randomSnow(4);
     
     tubesRef.current.tubes.setColors(colors);
     tubesRef.current.tubes.setLightsColors(lightsColors);
@@ -118,12 +86,18 @@ export function TubesBackground({
       className={cn("relative w-full h-full min-h-screen overflow-hidden", className)}
       onClick={handleClick}
     >
-      {/* Dynamic background layer */}
+      {/* Dynamic background layer (Parchment in light, Black in dark) */}
       <div className="fixed inset-0 z-0 bg-[#faf9f6] dark:bg-[#0a0a0a] transition-colors duration-500" />
 
+      {/* The 3D Canvas. ThreeJS clears with black. 
+          In light mode, we invert the canvas (black becomes white, white tubes become black ink),
+          and use mix-blend-multiply so the white canvas becomes transparent against the parchment! */}
       <canvas 
         ref={canvasRef} 
-        className="fixed inset-0 w-full h-full block z-[1]"
+        className={cn(
+          "fixed inset-0 w-full h-full block z-[1] transition-all duration-500",
+          theme === 'light' ? "invert mix-blend-multiply" : "mix-blend-screen"
+        )}
         style={{ touchAction: 'none' }}
       />
       
@@ -140,7 +114,10 @@ export function TubesBackground({
       </svg>
       {/* The Noise Overlay Layer */}
       <div 
-        className="fixed inset-0 w-full h-full opacity-[0.25] dark:opacity-[0.25] z-[2] pointer-events-none mix-blend-multiply dark:mix-blend-normal"
+        className={cn(
+          "fixed inset-0 w-full h-full opacity-[0.25] z-[2] pointer-events-none transition-all duration-500",
+          theme === 'light' ? "mix-blend-multiply" : "mix-blend-screen"
+        )}
         style={{ filter: "url(#noiseFilter)" }}
       ></div>
 
