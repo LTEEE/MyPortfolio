@@ -35,9 +35,8 @@ export function TubesBackground({
       if (!canvasRef.current) return;
 
       try {
-        // Bypass Turbopack static analysis for external URL
-        const importTubes = new Function('url', 'return import(url)');
-        const module = await importTubes('https://cdn.jsdelivr.net/npm/threejs-components@0.0.19/build/cursors/tubes1.min.js');
+        // Safely dynamic import the local module in useEffect to avoid SSR window errors
+        const module = await import('threejs-components/build/cursors/tubes1.min.js');
         const TubesCursor = module.default;
 
         if (!mounted) return;
