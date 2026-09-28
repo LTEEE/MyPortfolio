@@ -77,12 +77,15 @@ export function TubesBackground({
 
   return (
     <div 
-      className={cn("relative w-full h-full min-h-screen overflow-hidden bg-[#050505]", className)}
+      className={cn("relative w-full h-full min-h-screen overflow-hidden", className)}
       onClick={handleClick}
     >
+      {/* Dark background layer */}
+      <div className="fixed inset-0 z-0 bg-[#0a0a0a]" />
+
       <canvas 
         ref={canvasRef} 
-        className="fixed inset-0 w-full h-full block z-[-2]"
+        className="fixed inset-0 w-full h-full block z-[1]"
         style={{ touchAction: 'none' }}
       />
       
@@ -99,12 +102,12 @@ export function TubesBackground({
       </svg>
       {/* The Noise Overlay Layer */}
       <div 
-        className="fixed inset-0 w-full h-full opacity-[0.25] z-[-1] pointer-events-none"
+        className="fixed inset-0 w-full h-full opacity-[0.25] z-[2] pointer-events-none"
         style={{ filter: "url(#noiseFilter)" }}
       ></div>
 
       {/* Content Overlay */}
-      <div className="relative z-10 w-full h-full">
+      <div className="relative z-[10] w-full h-full">
         {children}
       </div>
     </div>
