@@ -36,7 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col relative bg-transparent text-neutral-900 dark:text-neutral-100 transition-colors duration-500">
+      <body className="min-h-full flex flex-col relative bg-background text-foreground transition-colors duration-500">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <ThemeToggle />
           <TubesBackground>
