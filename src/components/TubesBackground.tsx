@@ -119,7 +119,7 @@ export function TubesBackground({
       onClick={handleClick}
     >
       {/* Dynamic background layer */}
-      <div className="fixed inset-0 z-0 bg-background transition-colors duration-500" />
+      <div className="fixed inset-0 z-0 bg-[#faf9f6] dark:bg-[#0a0a0a] transition-colors duration-500" />
 
       <canvas 
         ref={canvasRef} 
