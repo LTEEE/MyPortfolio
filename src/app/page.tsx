@@ -44,7 +44,7 @@ export default function Home() {
   }, { scope: container });
 
   return (
-    <main ref={container} className="min-h-screen bg-[var(--background)] text-[var(--foreground)] font-sans selection:bg-neutral-800 selection:text-white dark:selection:bg-neutral-200 dark:selection:text-neutral-900 pb-20 overflow-hidden">
+    <main ref={container} className="min-h-screen text-[var(--foreground)] font-sans selection:bg-neutral-800 selection:text-white pb-20 overflow-hidden">
       <div className="max-w-3xl mx-auto px-6 pt-16 md:pt-24">
         {/* Header Section */}
         <header className="mb-16">
