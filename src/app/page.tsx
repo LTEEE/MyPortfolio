@@ -147,16 +147,19 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Project: VST3 plugin */}
+              {/* Project: ProjectActual */}
               <div className="group border border-neutral-200 dark:border-neutral-800 rounded-2xl p-6 hover:bg-neutral-50 dark:hover:bg-neutral-900/50 transition-colors">
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="font-medium text-lg flex items-center gap-2">
                     <Code className="w-4 h-4 text-neutral-500" />
-                    VST3 Audio Plugin
+                    Actual
                   </h3>
+                  <a href="https://github.com/LTEEE/ProjectActual" target="_blank" rel="noreferrer" className="text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
                 </div>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                  Co-developed an audio plugin during my first degree and presented it at a university science conference.
+                  A native iOS and watchOS application built with SwiftUI, featuring custom widgets and a shared core architecture.
                 </p>
               </div>
             </div>
