@@ -31,6 +31,23 @@ export function TubesBackground({
   const [isLoaded, setIsLoaded] = useState(false);
   const tubesRef = useRef<any>(null);
   const { theme } = useTheme();
+  
+  const [isMoving, setIsMoving] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    const handleMouseMove = () => {
+      setIsMoving(true);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      timeoutRef.current = setTimeout(() => setIsMoving(false), 500);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
 
   useEffect(() => {
     let mounted = true;
@@ -99,7 +116,10 @@ export function TubesBackground({
           and use mix-blend-multiply so the white canvas becomes transparent against the parchment! */}
       <canvas 
         ref={canvasRef} 
-        className="fixed inset-0 w-full h-full block z-[1] transition-all duration-500 invert mix-blend-multiply dark:invert-0 dark:mix-blend-screen"
+        className={cn(
+          "fixed inset-0 w-full h-full block z-[1] transition-all duration-700 invert mix-blend-multiply dark:invert-0 dark:mix-blend-screen",
+          isMoving ? "opacity-100" : "opacity-0"
+        )}
         style={{ touchAction: 'none' }}
       />
       
