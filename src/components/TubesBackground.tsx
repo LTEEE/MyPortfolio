@@ -51,9 +51,14 @@ export function TubesBackground({
             radius: 0.1,      // Thinner tubes
             colors: ["#ffffff", "#f0f0f0", "#e0e0e0"],
             lights: {
-              intensity: 15,  // Very dim light to remove the "neon lightning" effect
+              intensity: 10,  // Dimmer light
               colors: ["#ffffff", "#dddddd", "#bbbbbb", "#999999"]
             }
+          },
+          bloom: {
+            threshold: 0.5,   // Only bloom the brightest parts (eliminates the large faint aura)
+            strength: 0.8,    // Reduce overall bloom intensity
+            radius: 0.2       // Make the bloom tighter
           }
         });
 
