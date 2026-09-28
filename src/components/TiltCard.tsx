@@ -34,7 +34,7 @@ export function TiltCard({ children, className }: { children: React.ReactNode; c
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       animate={{ rotateX, rotateY }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      transition={{ type: "spring", stiffness: 75, damping: 15 }}
       style={{ perspective: 1000 }}
       className={cn("h-full", className)}
     >
