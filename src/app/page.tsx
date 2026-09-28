@@ -126,6 +126,9 @@ export default function Home() {
                     <PenTool className="w-4 h-4 text-neutral-500" />
                     Letters
                   </h3>
+                  <a href="https://github.com/LTEEE/ProjectLetters" target="_blank" rel="noreferrer" className="text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
                 </div>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   A native macOS writing environment built to enhance focus, featuring its own set of integrated AI assistance tools.
