@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
 };
 
-import NoiseBackground from "../components/NoiseBackground";
+import TubesBackground from "../components/TubesBackground";
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -34,8 +34,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`dark ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col relative bg-transparent">
-        <NoiseBackground />
-        <div className="relative z-10">{children}</div>
+        <TubesBackground>
+          {children}
+        </TubesBackground>
       </body>
     </html>
   );
