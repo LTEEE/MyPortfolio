@@ -94,10 +94,7 @@ export function TubesBackground({
           and use mix-blend-multiply so the white canvas becomes transparent against the parchment! */}
       <canvas 
         ref={canvasRef} 
-        className={cn(
-          "fixed inset-0 w-full h-full block z-[1] transition-all duration-500",
-          theme === 'light' ? "invert mix-blend-multiply" : "mix-blend-screen"
-        )}
+        className="fixed inset-0 w-full h-full block z-[1] transition-all duration-500 invert mix-blend-multiply dark:invert-0 dark:mix-blend-screen"
         style={{ touchAction: 'none' }}
       />
       
@@ -114,10 +111,7 @@ export function TubesBackground({
       </svg>
       {/* The Noise Overlay Layer */}
       <div 
-        className={cn(
-          "fixed inset-0 w-full h-full opacity-[0.25] z-[2] pointer-events-none transition-all duration-500",
-          theme === 'light' ? "mix-blend-multiply" : "mix-blend-screen"
-        )}
+        className="fixed inset-0 w-full h-full opacity-[0.25] z-[2] pointer-events-none transition-all duration-500 mix-blend-multiply dark:mix-blend-screen"
         style={{ filter: "url(#noiseFilter)" }}
       ></div>
 

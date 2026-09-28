@@ -175,9 +175,16 @@ export default function Home() {
                   <div className="absolute w-2 h-2 bg-neutral-400 rounded-full -left-[4.5px] top-2"></div>
                   <h3 className="font-medium text-lg">Content Writer</h3>
                   <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-2">Cool.Club</p>
-                  <p className="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">
+                  <p className="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed mb-4">
                     I write blog posts, product copy, reports and presentations, and each piece is built on market research and Excel analysis.
                   </p>
+                  <div className="flex flex-wrap gap-2">
+                    {["Content Writing", "Excel", "Data Analysis"].map(skill => (
+                      <span key={skill} className="px-3 py-1 text-xs bg-neutral-100 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 rounded-full border border-neutral-200 dark:border-neutral-800">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -193,41 +200,33 @@ export default function Home() {
                   <div className="absolute w-2 h-2 bg-neutral-400 rounded-full -left-[4.5px] top-2"></div>
                   <h3 className="font-medium text-lg">International Marketing</h3>
                   <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-2">University of Lodz · 2024 - 2027</p>
-                  <p className="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">
+                  <p className="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed mb-4">
                     Averaging 4.8/5. Top marks in Digital Marketing, Consumer Behavior, Data Analysis, and Project Management.
                   </p>
+                  <div className="flex flex-wrap gap-2">
+                    {["Digital Marketing", "Consumer Behaviour", "Brand Communication", "SPSS"].map(skill => (
+                      <span key={skill} className="px-3 py-1 text-xs bg-neutral-100 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 rounded-full border border-neutral-200 dark:border-neutral-800">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
                 <div className="relative pl-6 border-l border-neutral-200 dark:border-neutral-800">
                   <div className="absolute w-2 h-2 bg-neutral-400 rounded-full -left-[4.5px] top-2"></div>
                   <h3 className="font-medium text-lg">Computer Science</h3>
                   <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-2">University of Lodz · 2022 - 2023</p>
-                  <p className="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed">
+                  <p className="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed mb-4">
                     Studied programming, computer science fundamentals and logic before moving to marketing.
                   </p>
+                  <div className="flex flex-wrap gap-2">
+                    {["Claude Code", "Anthropic API", "SwiftUI", "TypeScript", "React"].map(skill => (
+                      <span key={skill} className="px-3 py-1 text-xs bg-neutral-100 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 rounded-full border border-neutral-200 dark:border-neutral-800">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
-
-          {/* Skills */}
-          <section className="section-anim">
-            <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-              <span className="w-8 h-[1px] bg-neutral-300 dark:bg-neutral-700"></span>
-              Skills
-            </h2>
-            <div className="flex flex-wrap gap-2">
-              {[
-                "Content Writing", "Digital Marketing", "Consumer Behaviour", "Brand Communication",
-                "Excel", "SPSS", "Data Analysis",
-                "Claude Code", "Anthropic API", "SwiftUI", "TypeScript", "React"
-              ].map((skill, index) => (
-                <span 
-                  key={index}
-                  className="px-4 py-2 text-sm bg-neutral-100 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 rounded-full border border-neutral-200 dark:border-neutral-800"
-                >
-                  {skill}
-                </span>
-              ))}
             </div>
           </section>
         </div>
