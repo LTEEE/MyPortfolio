@@ -6,7 +6,7 @@ import { ChromaFlow } from "shaders/react";
 export default function CursorEffect() {
   return (
     <div 
-      className="fixed inset-0 z-[-1] pointer-events-none overflow-hidden"
+      className="fixed inset-0 z-[-1] overflow-hidden"
     >
       <ChromaFlow 
         baseColor="#0a0a0a" 
