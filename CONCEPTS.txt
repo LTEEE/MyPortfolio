@@ -16,3 +16,7 @@ Description: The stark B&W background blooms into massive, slow-moving colorful 
 
 To return to the main codebase at any time, run:
 git checkout main
+
+4. The Typewriter Document
+Command: git checkout concept-typewriter
+Description: Strips away the UI to emulate a raw, typed document. The background is a paper/canvas texture, the font is Courier Prime, and the header actually types itself out letter-by-letter.
